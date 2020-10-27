@@ -1,6 +1,7 @@
 class Partida():
-    def __init__(self, palabra, intentos, tipo_palabra, nombre_jugador, palabra_aciertos=None):
-        
+    def __init__(self, palabra, intentos, tipo_palabra, nombre_jugador,
+                 palabra_aciertos=None):
+
         if(palabra == ""):
             raise ValueError("La palabra no puede estar vacia")
         if(nombre_jugador == ""):
@@ -9,7 +10,7 @@ class Partida():
             raise ValueError("El tipo de palabra no puede estar vacio")
         if(intentos < 0):
             raise ValueError("Intentos no puede ser menor a 0")
-        
+
         self._palabra = list(palabra.upper())
         self._intentos = intentos
         self._tipo_palabra = tipo_palabra.upper()

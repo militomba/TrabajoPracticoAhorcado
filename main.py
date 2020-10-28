@@ -6,7 +6,7 @@ class Menu():
     def seleccion_jugadores(self):
         print("Seleccione Opcion")
         print("1 => 1 jugador")
-        print("2 => 2jugadores")
+        print("2 => 2 jugadores")
         print("3 => Ver resultados")
         return int(input("Seleccione opcion => "))
 

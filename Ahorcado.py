@@ -5,7 +5,7 @@ from AhorcadoService import AhorcadoService
 class Ahorcado():
     def un_jugador(self):
         nombre = input("Ingrese su nombre => ")
-        print("Nombre elegido", nombre)
+        print("Nombre elegido", nombre.upper())
         dificultad = int(input("Ingrese la dificultad del 1 al 10 => "))
         print("Dificultad elegida", dificultad)
         partida = ServicesPartidas().iniciar_partida(nombre, dificultad, "",
@@ -22,6 +22,8 @@ class Ahorcado():
             if(result != "Continua"):
                 if(result == "Gano"):
                     print("\n\n\nFelicitaciones, Ganaste!\n\n\n")
+                    print("\n\nLa palabra era", partida.palabra,
+                          "\n\n")
                 else:
                     print(
                         "\n\n\nLo siento, Perdiste :( la palabra era ",
@@ -33,8 +35,9 @@ class Ahorcado():
 
     def dos_jugadores(self):
         nombre = input("Jugador 1 ingrese su nombre => ")
-        print("Nombre Jugador 1", nombre)
-        dificultad = int(input("Ingrese la dificultad del 1 al 10 => "))
+        print("Nombre Jugador 1", nombre.upper())
+        dificultad = int(input("Ingrese la dificultad del juego del "
+                         "1 al 10 => "))
         print("Dificultad elegida", dificultad)
         palabra = input("Ingrese la palabra para el jugador 2 => ")
         tipo_palabra = input("Ingrese el tipo de palabra => ")
@@ -52,16 +55,18 @@ class Ahorcado():
             if(result != "Continua"):
                 if(result == "Gano"):
                     print("\n\n\nFelicitaciones, Ganaste!\n\n\n")
+                    print("\nLa palabra era", palabra.upper(), "\n")
                 else:
-                    print(
-                        "\n\n\nLo siento, Perdiste :( la palabra era ",
-                        palabra, "\n\n\n")
+                    print("\n\n\nLo siento, Perdiste :( \n\n\n")
+                    print("\nLa palabra era", palabra.upper(), "\n")
                 termino = True
         AhorcadoService().guardar_partida(partida, partida.nombre_jugador)
 
+        print("\nEs el turno del jugador 2\n")
         nombre = input("Jugador 2 ingrese su nombre => ")
-        print("Nombre Jugador 2", nombre)
-        dificultad = int(input("Ingrese la dificultad del 1 al 10 => "))
+        print("Nombre Jugador 2", nombre.upper())
+        dificultad = int(input("Ingrese la dificultad del juego del "
+                         "1 al 10 => "))
         print("Dificultad elegida", dificultad)
         palabra = input("Ingrese la palabra para el jugador 1 => ")
         tipo_palabra = input("Ingrese el tipo de palabra => ")
@@ -79,10 +84,10 @@ class Ahorcado():
             if(result != "Continua"):
                 if(result == "Gano"):
                     print("\n\n\nFelicitaciones, Ganaste!\n\n\n")
+                    print("\nLa palabra era", palabra.upper(), "\n")
                 else:
-                    print(
-                        "\n\n\nLo siento, Perdiste :( la palabra era ",
-                        palabra, "\n\n\n")
+                    print("\n\n\nLo siento, Perdiste :( \n\n\n")
+                    print("\nLa palabra era", palabra.upper(), "\n")
                 termino = True
         AhorcadoService().guardar_partida(partida, partida.nombre_jugador)
         return True
